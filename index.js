@@ -57,3 +57,17 @@ function updateTaskStatus(index) {
 
 updateTaskStatus(index);
 listTasks();
+
+// 4. **Atualização de Tarefa:**
+//     - Crie uma função chamada **`updateTask(index, newTitle, newDescription)`** que permita atualizar o título e a descrição de uma tarefa existente.
+//     - Verifique se o índice fornecido é válido e se o novo título é fornecido. Se não for, exiba mensagens de erro apropriadas.
+//     - Atualize o título e a descrição da tarefa selecionada com os valores fornecidos.
+const newTitle = "Almoço";
+const newDescription = "Fazer o almoço ao 12h00!";
+function updateTask(index, newTitle, newDescription) {
+  arrayTask[index].title = newTitle;
+  arrayTask[index].description = newDescription;
+}
+
+updateTask(index, newTitle, newDescription);
+listTasks();
