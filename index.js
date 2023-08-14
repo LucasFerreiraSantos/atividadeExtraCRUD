@@ -7,12 +7,19 @@ const title = prompt("Qual o título da tarefa? ");
 const description = prompt("Qual a descrição da tarefa? ");
 let completed = false;
 
+// percorrer os indices do array
+const indexTasks = arrayTask.findIndex((tasks) => tasks.title);
+
 function createTask(title, description) {
-  arrayTask.push({
-    title,
-    description,
-    completed,
-  });
+  if (title === "") {
+    alert("O título da tarefa é obrigatório.");
+  } else {
+    arrayTask.push({
+      title,
+      description,
+      completed,
+    });
+  }
 }
 
 createTask(title, description);
@@ -21,5 +28,18 @@ createTask(title, description);
 //     - Crie uma função chamada **`listTasks()`** que exiba uma lista formatada de todas as tarefas cadastradas.
 //     - Percorra o array de tarefas e mostre o índice, título, descrição e o status (concluída ou não) de cada tarefa.
 function listTasks() {
-  
+  if (completed) {
+    completed = "Tarefa concluída!";
+  } else {
+    completed = "Tarefa NÃO concluída!";
+  }
+  arrayTask.forEach((tasks) => {
+    console.log(
+      `${tasks.indexTasks} | ${tasks.title} | ${tasks.description} | ${tasks.completed}`
+    );
+  });
 }
+
+// 3. **Atualização de Status de Tarefa:**
+//     - Crie uma função chamada **`updateTaskStatus(index, completed)`** que permita atualizar o status de conclusão de uma tarefa.
+//     - Verifique se o índice informado existe e, em seguida, atualize a propriedade **`completed`** da tarefa correspondente para o valor fornecido.
